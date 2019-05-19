@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="content" ng-controller="content">
+<head>
+    <meta charset="utf-8" />
+    <title>主页</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <style>
+        div {
+            position: absolute;
+            left: 30%;
+            margin-top: 20px;
+            font-size: 50px;
+        }
+        a {
+            position: absolute;
+            font-size: 50px;
+            text-decoration: none;
+            left: 60%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>欢迎用户：{{userName}}</div>
+    <a href="login.html" ng-click="logout()">退出</a>
+    <script src="js/content.js"></script>
+</body>
+</html>

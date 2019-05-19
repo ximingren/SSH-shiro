@@ -1,0 +1,20 @@
+1.hibernate的update是默认更新全部字段，默认根据id来更新,updatable为false时生成的sql中没有该字段，不会对该字段进行update
+2.session.get方法，是根据@Id来查询的
+3.hibernate的查询方法来说大致有四种，一种是get,一种是hql，一种是QBC查询.一种是本地SQL查询，使用hql查询必须是实体类的类名,QBC也是Criteria查询是完全面向对象的查询,
+4.映射关系有两种方法，一是使用注解，一是使用xml
+5.get方法只能获取单一对象
+6.如果@Id的字段有重复值，那么取出的时候也是只是看作是一条数据，有几条数据重复就重复几个对象
+7.manyTomany中的key是查询条件,@Id跟key要一样.使用manyTomany可以解决中间表的问题，不用建立一个中间类也能实现三表联合
+8.在Hibernate中占位符?已经过时
+9.credentials密码验证流程是，realm提供封装好的用户Info,matcher负责token跟Info匹配。AuthenticatingRealm中有credentialsMatcher接口变量，默认实现是SimpleCredentialsMatcher.
+而HashCredentialsMatcher则是可以用自定义的散列算法来加密密码匹配
+10.onPrehandler是如果url跟填写的url匹配的话，就执行onPrehandler方法。PathMatchingFilter提供了基于Ant风格的请求路径匹配功能以及拦截器参数解析的功能，pathsMatch,OnPreHandle。AdviceFilter提供了AOP风格的支持
+有preHandle,postHandle,afterCompletion。
+11.如果是用于访问的过滤的话，继承AccessControlFilter。想添加一些通用数据的话，继承PathMatchingFilter。利用ProxiedFilterChain对Servlet容器的FilterChain进行代理。
+
+1.微服务(Micor Service)是一种允许开发人员独立开发和部署服务的体系结构。每个运行的服务都有自己的流程，这实现了轻量级模型以支持业务应用程序。
+
+1.事件是指HTML中发生某些事件时所调用的方法
+2.ng-change用于HTML元素改变时需要执行的操作
+3.表单属性$valid合法,$invalid非法,$pristine无使用,$dirty有使用
+4.通常在控制器和工厂方法中用DI比较多

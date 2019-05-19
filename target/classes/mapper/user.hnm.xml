@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ximingren.entity.User" table="u_user">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="nickname"/>
+        <property name="email"/>
+        <property name="pswd"/>
+        <property name="status"/>
+        <property name="salt"/>
+        <property name="createTime" type="java.util.Date" column="create_time"/>
+        <property name="lastLoginTime" type="java.util.Date" column="last_login_time"/>
+        <set name="roles" table="u_user_role" lazy="false" inverse="false">
+            <key column="uid"/>
+            <many-to-many class="com.ximingren.entity.Role">
+                <column name="rid"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

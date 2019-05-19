@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<!--TODO 加data和不加data有区别吗-->
+<!--TODO ng-model和ng-bind有什么区别-->
+<body ng-app="login" ng-controller="loginCtrl">
+<div class="container">
+    <h1>Please input your account and password</h1>
+    <div>
+        <input type="text" ng-model="UserName" placeholder="帐号"/>
+        <span ng-if="!isUserExist">该用户不存在</span>
+    </div>
+    <div>
+        <input type="password" ng-model="Password" placeholder="密码"/>
+        <span ng-if="wrongPassword">密码错误</span>
+    </div>
+    <a href="content.html" class="login" ng-click="login($event)">Login</a>
+    <a href="register.html" class="register">Register</a>
+</div>
+<script src="js/login.js"></script>
+</body>
+</html>

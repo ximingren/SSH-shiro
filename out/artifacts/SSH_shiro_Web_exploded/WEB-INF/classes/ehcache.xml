@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache name="shirocache">
+    <diskStore path="java.io.temdir"/>
+    <!--eternal是否是永恒数据,
+    timeToIdleSeconds:对象空闲时间，指的是对象在多长时间没有被访问就会失效,
+    timeToLiveSeconds:对象存活时间，指的是对象从创建到失效所需要的时间。
+    overflowToDisk:如果内存中数据数量超过maxElementsInMemory显示，是否缓存到磁盘中,
+    -->
+    <cache name="passwordRetryCache" maxEntriesLocalHeap="2000" eternal="false" timeToIdleSeconds="3600"
+           timeToLiveSeconds="0" overflowToDisk="false" statistics="true"></cache>
+
+</ehcache>

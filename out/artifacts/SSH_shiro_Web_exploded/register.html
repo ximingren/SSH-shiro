@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body ng-app="register" ng-controller="registerCtrl">
+<div class="container">
+    <H1>Create Account</H1>
+    <form name="registerForm" ng-submit="PostForm()">
+        <ul>
+            <li>
+                <span class="requireMark">*</span>
+                <label>UserName</label>
+                <input type="text" name="UserName" ng-model="UserName" ng-change="existName=false" autocomplete="off" required/>
+                <span class="notice" ng-show="registerForm.UserName.$dirty && registerForm.UserName.$invalid">
+                    <span class="tips" ng-show="registerForm.UserName.$error.required">无效用户名</span>
+                </span>
+                <span class="tips" ng-if="existName">用户名已存在</span>
+            </li>
+            <li>
+                <span class="requireMark">*</span>
+                <select ng-model="Vertification" name="Vertification" ng-options="obj for obj in form.vertifications">
+                    <option value="">请选择验证方式</option>
+                </select>
+            </li>
+            <li ng-if="Vertification!=''&&Vertification!=null&&Vertification!=undefined">
+                <span class="requireMark">*</span>
+                <label>{{Vertification}}</label>
+                <input type="text" name="info" ng-model="form.info" autocomplete="off" ng-pattern="Vertification=='Email'?'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$':'^[1][358][0-9]{9}$'" ng-change="Clear()" required/>
+                <span class="tips" ng-show="registerForm.info.$invalid&&registerForm.info.$dirty">请输入正确{{Vertification}}</span>
+                <span class="tips" ng-if="hasUse">{{Vertification}}已注册</span>
+            </li>
+            <li>
+                <span class="requireMark">*</span>
+                <label>验证码</label>
+                <input type="text" ng-change="codeError=false" ng-model="code" required/>
+                <span class="tips" ng-if="codeError">验证码错误</span>
+            </li>
+            <li>
+                <span class="requireMark">*</span>
+                <label>密码</label>
+                <input type="password" ng-model="password" required />
+            </li>
+            <li>
+                <span class="requireMark">*</span>
+                <label>确认密码</label>
+                <input type="password" name="confirm" ng-model="confirm" required />
+                <span class="tips" ng-show="confirm!=password&&registerForm.confirm.$dirty">两次密码不一致</span>
+            </li>
+            <li>
+                <input ng-disabled="registerForm.$invalid||Vertification==''||Vertification==null||Vertification==undefined" type="submit" value="注册" />
+            </li>
+            <a href="index.html">登录</a>
+        </ul>
+    </form>
+</div>
+<script src="js/angular.js"></script>
+</body>
+</html>
